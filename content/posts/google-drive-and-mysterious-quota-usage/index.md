@@ -11,13 +11,15 @@ So in preparation for Google's [changes](https://www.bbc.co.uk/news/technology-5
 Did some Googling and found out that items in your trash count towards the quota, so I went and emptied it. No change. This seems like a problem.
 
 So, I fired up [rclone](https://rclone.org/) in the hope it might be able to shed more light on what was happening than the drive webui:
-```
+
+```text
 Total:   17G
 Used:    4.182G
 Free:    10.636G
 Trashed: 0
 Other:   2.181G
 ```
+
 Not really.
 
 Some more Googling later I found out that Google Drive does something very stupid. If someone shares a folder with you, and you create things in that folder, then if they delete the shared folder, or any folders within it, anything you created goes into limbo. It still exists and counts against the quota for your drive but isn't visible anywhere because it's not associated with a folder.
@@ -27,13 +29,15 @@ If you click on the Storage info in the drive UI they'll show up, but you can't 
 Turns out Google *sort* of address this in a [support article](https://support.google.com/drive/answer/1716222) - they don't really explain how or why the problem occurs but they do tell you how to track down the files: Search for `is:unorganized owner:me`.
 
 Suddenly, there they were. 2.5Gb of files that I never realised were even on my drive, weren't visible in the webui, weren't syncing to my devices, but were definitely being counted against my quota. I moved them all to a temporary folder and then deleted them - remembering to empty the trash - and...
-```
+
+```text
 Total:   17G
 Used:    1.486G
 Free:    13.333G
 Trashed: 0
 Other:   2.181G
 ```
+
 Much better.
 
 This is clearly atrocious software design by Google; not so much having the files persist in limbo, you probably want to secure against someone deleting a shared folder and all your hard work being nuked, but not surfacing it anywhere. At least have a "Lost and Found" folder that holds all this stuff so it's not just an invisible mass of data using up your storage quota.

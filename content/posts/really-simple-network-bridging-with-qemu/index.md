@@ -7,6 +7,7 @@ author: "Adam"
 ---
 
 ## Intro
+
 I've not really used qemu much before but I found myself needing it last week for a particular project and discovered - to my shock and amazement - that the documentation (official and 3rd party) surrounding it is almost universally terrible. A mixture of overly-complex, out of date, incredibly niche, and just straight up poorly-written.
 
 I'll be honest, I wasn't after much, I had a single qemu VM and I wanted it to be routable on my LAN. For various reasons, PCI pass-through wasn't an option (not that the docs there are any better) but I did have a NIC that wasn't being used for anything else that I was hoping could be put to use here.
