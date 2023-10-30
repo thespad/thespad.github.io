@@ -2,6 +2,7 @@
 title: "Changing Docker Daemon Options For Fun and Profit"
 date: 2022-03-31T18:00:00.000Z
 tags: ["docker","howto","daemon","network"]
+aliases: ["/changing-docker-daemon-options-for-fun-and-profit"]
 author: "Adam"
 ---
 

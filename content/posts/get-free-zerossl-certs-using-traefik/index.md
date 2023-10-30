@@ -2,6 +2,7 @@
 title: ZeroSSL As A LetsEncrypt Alternative Using Traefik
 date: 2020-12-20T12:06:15.000Z
 tags: ["traefik","docker","certificates","letsencrypt","howto"]
+aliases: ["/get-free-zerossl-certs-using-traefik"]
 author: Adam
 ---
 

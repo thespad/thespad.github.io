@@ -2,6 +2,7 @@
 title: Monitoring For Docker Image Updates With Diun
 date: 2020-09-17T15:47:15.000Z
 tags: ["diun","docker","updates","howto"]
+aliases: ["/monitoring-for-docker-image-updates-with-diun"]
 author: Adam
 summary: One of the most common questions around Docker is "how do I know when I new version of an image gets published?". Even if you're tied to a specific version tag, security and bug fixes can still result in new images being pushed and there's no built-in mechanism to notify you that it's happened.
 ---

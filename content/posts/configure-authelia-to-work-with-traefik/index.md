@@ -2,6 +2,7 @@
 title: Configure Authelia To Work With Traefik
 date: 2020-09-15T15:24:15.000Z
 tags: ["traefik","docker","authelia","howto"]
+aliases: ["/configure-authelia-to-work-with-traefik"]
 author: Adam
 ---
 

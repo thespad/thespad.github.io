@@ -2,6 +2,7 @@
 title: The Dockers I Have Done
 date: 2021-09-07T10:56:15.000Z
 tags: ["LSIO","docker","containers","linux","linuxsever.io"]
+aliases: ["/the-dockers-ive-done"]
 author: Adam
 ---
 

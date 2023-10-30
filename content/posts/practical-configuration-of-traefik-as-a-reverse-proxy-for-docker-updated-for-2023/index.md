@@ -2,6 +2,7 @@
 title: "Practical Configuration of Traefik as a Reverse Proxy For Docker - Updated for 2023"
 date: 2023-07-19T17:51:15.000Z
 tags: ["traefik","docker","containers","howto"]
+aliases: ["/practical-configuration-of-traefik-as-a-reverse-proxy-for-docker-updated-for-2023"]
 author: "Adam"
 summary: An updated guide to configuring Traefik with Docker, with explanations of why to do each step as well as how.
 ---

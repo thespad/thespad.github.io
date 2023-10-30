@@ -2,6 +2,7 @@
 title: Practical Configuration of Traefik As A Reverse Proxy For Docker
 date: 2020-09-15T13:49:15.000Z
 tags: ["traefik","docker","containers","howto"]
+aliases: ["/practical-configuration-of-traefik-as-a-reverse-proxy-for-docker"]
 author: Adam
 summary: Traefik is a reverse proxy and load balancer which automatically discovers the right configuration for your docker containers based on labels you set when you create them.
 ---

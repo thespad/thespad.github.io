@@ -2,6 +2,7 @@
 title: A Fresh Start
 date: 2020-09-14T20:56:15.000Z
 tags: ["tedious admin"]
+aliases: ["/a-fresh-start"]
 author: Adam
 ---
 

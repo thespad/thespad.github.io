@@ -2,6 +2,7 @@
 title: Connecting to NFS Shares From Windows (Properly)
 date: 2021-02-11T13:27:15.000Z
 tags: ["nfs","howto","windows","linux","networking","storage","identity mapping"]
+aliases: ["/connecting-to-nfs-shares-from-windows-properly"]
 author: Adam
 ---
 

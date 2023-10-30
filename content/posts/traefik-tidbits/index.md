@@ -2,6 +2,7 @@
 title: Traefik Titbits
 date: 2020-10-05T22:05:15.000Z
 tags: ["traefik","docker"]
+aliases: ["/traefik-tidbits"]
 author: Adam
 summary: This is just a quick collection of random bits I've learned about Traefik since writing my original How To.
 ---

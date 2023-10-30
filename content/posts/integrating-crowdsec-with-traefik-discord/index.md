@@ -2,6 +2,7 @@
 title: "Integrating CrowdSec with Traefik & Discord"
 date: 2022-01-11T13:03:00.000Z
 tags: ["traefik","crowdsec","fail2ban","howto","docker","discord"]
+aliases: ["/integrating-crowdsec-with-traefik-discord"]
 author: "Adam"
 ---
 

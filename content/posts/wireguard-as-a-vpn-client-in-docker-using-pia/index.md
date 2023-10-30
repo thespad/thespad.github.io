@@ -2,6 +2,7 @@
 title: Wireguard as a VPN client in Docker using PIA
 date: 2020-09-26T21:30:15.000Z
 tags: ["wireguard","docker","vpn","howto","PIA","LSIO"]
+aliases: ["/wireguard-as-a-vpn-client-in-docker-using-pia"]
 author: Adam
 ---
 

@@ -2,6 +2,7 @@
 title: Google Drive and Mysterious Quota Usage
 date: 2020-11-13T19:42:15.000Z
 tags: ["Google Drive","quota","files","storage","limbo","shared folders","Google"]
+aliases: ["/google-drive-and-mysterious-quota-usage"]
 author: Adam
 ---
 

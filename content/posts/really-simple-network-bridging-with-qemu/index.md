@@ -2,6 +2,7 @@
 title: "Really Simple Network Bridging With qemu"
 date: 2022-09-04T11:55:00.000Z
 tags: ["linux","networking","qemu","howto","bridging","systemd"]
+aliases: ["/really-simple-network-bridging-with-qemu"]
 author: "Adam"
 ---
 
