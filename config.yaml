@@ -1,0 +1,97 @@
+languageCode: en-gb
+baseUrl: "https://www.spad.uk/"
+title: spad.uk
+theme: PaperMod
+paginate: 10
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: spad.uk
+  description: ExampleSite description
+  keywords: [Blog, Portfolio, PaperMod]
+  author: Adam
+  DateFormat: "2006-02-15"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    disableHLJS: true
+
+  homeInfoParams:
+    Title: Brain Excretions
+    Content: |
+      Build a man a fire, and he'll be warm for a day.
+
+      Set a man on fire, and he'll be warm for the rest of his life.
+
+  socialIcons:
+  - name: mastodon
+    url: "https://mastodon.linuxserver.io/@spad"
+  - name: github
+    url: "https://github.com/thespad"
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: posts
+      name: posts
+      url: /posts/
+      weight: 10
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 20
+    - identifier: archives
+      name: archives
+      url: /archives/
+      weight: 30
+
+pygmentsUseClasses: true
+
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    lineNos: false
+    noClasses: false
+    style: onedark
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
