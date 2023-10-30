@@ -14,10 +14,10 @@ minify:
   minifyOutput: true
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  env: production
   title: spad.uk
-  description: ExampleSite description
-  keywords: [Blog, Portfolio, PaperMod]
+  description: Brain Excretions
+  keywords: [Blog, Hugo, PaperMod]
   author: Adam
   DateFormat: "2006-02-15"
   defaultTheme: auto # dark, light
