@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: http://docker2.ad.spad.uk:1313/sitemap.xml
