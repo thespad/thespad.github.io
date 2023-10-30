@@ -20,7 +20,7 @@ params:
   keywords: [Blog, Hugo, PaperMod]
   author: Adam
   DateFormat: "2006-02-15"
-  defaultTheme: auto # dark, light
+  defaultTheme: auto # dark, light, auto
   disableThemeToggle: false
 
   ShowReadingTime: true
@@ -54,6 +54,8 @@ params:
     url: "https://mastodon.linuxserver.io/@spad"
   - name: github
     url: "https://github.com/thespad"
+  - name: discord
+    url: "https://discord.gg/linuxserver"
 
   fuseOpts:
     isCaseSensitive: false
