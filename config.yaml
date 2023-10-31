@@ -19,7 +19,7 @@ params:
   description: Brain Excretions
   keywords: [Blog, Hugo, PaperMod]
   author: Adam
-  DateFormat: "2006-02-15"
+  DateFormat: "2006-01-02"
   defaultTheme: auto # dark, light, auto
   disableThemeToggle: false
 
