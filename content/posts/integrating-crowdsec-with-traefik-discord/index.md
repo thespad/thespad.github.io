@@ -6,6 +6,10 @@ aliases: ["/integrating-crowdsec-with-traefik-discord"]
 author: "Adam"
 ---
 
+### A Further Update
+
+Since writing this post I've now moved from using the Traefik Crowdsec Bouncer container to using a [plugin-based bouncer](https://github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin) as it performs better and is actively maintained.
+
 ### Update To The Update
 
 The issue with upstream proxies and the Traefik bouncer has been resolved by the maintainer. I'll leave my fork up in case I get some more free time to work on it.
@@ -195,10 +199,7 @@ format: |
         "title": "{{$alert.MachineID}}: {{.Scenario}}",
         "description": ":flag_{{ $alert.Source.Cn | lower }}: {{$alert.Source.IP}} will get a {{.Type}} for the next {{.Duration}}. <https://www.shodan.io/host/{{$alert.Source.IP}}>",
         "url": "https://db-ip.com/{{$alert.Source.IP}}",
-        "color": "16711680",
-        "image": {
-          "url": "https://www.mapquestapi.com/staticmap/v5/map?center={{$alert.Source.Latitude}},{{$alert.Source.Longitude}}&size=500,300&key=<MAPQUEST_API_KEY>"
-        }
+        "color": "16711680"
       }
       {{end}}
       {{if not $alert.Source.Cn -}}
@@ -224,7 +225,7 @@ headers:
 
 The alerts use Go templating which can be a bit of a steep learning curve if you're not used to it, though they do helpfully [document their Alert model](https://pkg.go.dev/github.com/crowdsecurity/crowdsec@master/pkg/models#Alert) to help you out.
 
-This will create a Discord embed message with details of the IP that's been banned, a link to the db-ip.com page for the IP, a link to the Shodan page on the IP and an image from MapQuest showing you where in the world your malicious actor is. If you want to use the MapQuest integration you need to [register](https://developer.mapquest.com/documentation/) for an API key and add it to the config; they give you 15k free hits a month which should be enough most of the time.
+This original template above used the MapQuest API to generate maps against the GeoIP information associated with the banned address. Unfortunately since then MapQuest have changed their API pricing from 15k free hits a month to 15k free hits a month and then we start charging you per hit, so I've removed it from the post.
 
 Once the template is saved, open up profiles.yaml in your CrowdSec config directory, uncomment notifications: and underneath it add - discord so that it looks like this:
 
@@ -253,4 +254,4 @@ CrowdSec is an interesting product. It positions itself as a straight upgrade to
 
 ~~For now I'm taking a hybrid approach, using Fail2Ban for failed auth blocking at a host level and then running CrowdSec against Traefik to watch for more specific exploit attempts against things like Wordpress or popular vulnerabilities like log4j. Whether I stick with it, or move to it entirely, remains to be seen.~~
 
-I've now swapped out fail2ban for CrowdSec entirely, using a combination of the iptables and Cloudflare bouncers with the intent of adding agents to other host for better visibility across my network.
+I've now swapped out fail2ban for CrowdSec entirely, using a combination of the iptables and web service bouncers with the intent of adding agents to other host for better visibility across my network.
