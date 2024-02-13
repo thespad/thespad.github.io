@@ -225,7 +225,7 @@ headers:
 
 The alerts use Go templating which can be a bit of a steep learning curve if you're not used to it, though they do helpfully [document their Alert model](https://pkg.go.dev/github.com/crowdsecurity/crowdsec@master/pkg/models#Alert) to help you out.
 
-This original template above used the MapQuest API to generate maps against the GeoIP information associated with the banned address. Unfortunately since then MapQuest have changed their API pricing from 15k free hits a month to 15k free hits a month and then we start charging you per hit, so I've removed it from the post.
+This will create a Discord embed message with details of the IP that's been banned, a link to the db-ip.com page for the IP, a link to the Shodan page on the IP. The original template above used the MapQuest API to generate maps against the GeoIP information associated with the banned address. Unfortunately since then MapQuest have changed their API pricing from 15k free hits a month to 15k free hits a month and then we start charging you per hit, so I've removed it from the post.
 
 Once the template is saved, open up profiles.yaml in your CrowdSec config directory, uncomment notifications: and underneath it add - discord so that it looks like this:
 
