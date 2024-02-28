@@ -2,7 +2,7 @@
 title: Sophos/Utimaco Safeguard Enterprise User Addition/Removal Script
 author: Adam
 date: 2010-12-02T19:20:24+00:00
-aliases: ["/angry/37"]
+aliases: ["/wordpress/37"]
 tags:
   - encryption
   - powershell

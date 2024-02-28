@@ -2,7 +2,7 @@
 title: Querying Lync/Skype CDR Database
 author: Adam
 date: 2016-08-16T10:11:44+00:00
-aliases: ["/angry/880"]
+aliases: ["/wordpress/880"]
 tags:
   - call detail recording
   - CDR

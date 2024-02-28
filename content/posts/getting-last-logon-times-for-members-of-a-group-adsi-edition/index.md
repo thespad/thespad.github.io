@@ -2,7 +2,7 @@
 title: Getting Last Logon Times For Members of A Group – ADSI Edition
 author: Adam
 date: 2012-08-20T09:16:54+00:00
-aliases: ["/angry/441"]
+aliases: ["/wordpress/441"]
 tags:
   - active directory
   - ADSI

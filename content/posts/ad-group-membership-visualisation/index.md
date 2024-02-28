@@ -2,7 +2,7 @@
 title: AD Group Membership Visualisation
 author: Adam
 date: 2014-11-12T13:55:42+00:00
-aliases: ["/angry/780"]
+aliases: ["/wordpress/780"]
 tags:
   - active directory
   - group membership

@@ -2,7 +2,7 @@
 title: Sophos Safeguard Enterprise Auto-Sync Script
 author: Adam
 date: 2010-12-05T20:29:10+00:00
-aliases: ["/angry/64"]
+aliases: ["/wordpress/64"]
 tags:
   - encryption
   - powershell

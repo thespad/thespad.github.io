@@ -2,7 +2,7 @@
 title: Am I an Administrator?
 author: Adam
 date: 2012-02-16T16:24:21+00:00
-aliases: ["/angry/380"]
+aliases: ["/wordpress/380"]
 tags:
   - powershell
   - scripts

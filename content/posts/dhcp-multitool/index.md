@@ -2,7 +2,7 @@
 title: DHCP-Multitool
 author: Adam
 date: 2012-10-16T09:18:15+00:00
-aliases: ["/angry/471"]
+aliases: ["/wordpress/471"]
 tags:
   - DHCP
   - microsoft

@@ -2,7 +2,7 @@
 title: Disable NTFS Permissions Inheritance
 author: Adam
 date: 2012-03-30T10:08:27+00:00
-aliases: ["/angry/425"]
+aliases: ["/wordpress/425"]
 tags:
   - NTFS
   - permissions

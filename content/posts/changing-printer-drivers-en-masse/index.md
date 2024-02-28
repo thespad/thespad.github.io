@@ -2,7 +2,7 @@
 title: Changing Printer Drivers En Masse
 author: Adam
 date: 2012-03-01T10:53:36+00:00
-aliases: ["/angry/400"]
+aliases: ["/wordpress/400"]
 tags:
   - automation
   - drivers

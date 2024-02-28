@@ -2,7 +2,7 @@
 title: Failed To Restore Print Queue…Error 0x800706d9
 author: Adam
 date: 2012-02-22T11:54:07+00:00
-aliases: ["/angry/386"]
+aliases: ["/wordpress/386"]
 tags:
   - errors
   - microsoft

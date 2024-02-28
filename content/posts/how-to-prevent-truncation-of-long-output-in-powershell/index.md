@@ -2,7 +2,7 @@
 title: How to Prevent Truncation of Long Output In Powershell
 author: Adam
 date: 2017-04-04T16:05:55+00:00
-aliases: ["/angry/925"]
+aliases: ["/wordpress/925"]
 tags:
   - powershell
   - scripts

@@ -2,7 +2,7 @@
 title: Proxy Authentication With Powershell
 author: Adam
 date: 2016-09-09T11:44:04+00:00
-aliases: ["/angry/900"]
+aliases: ["/wordpress/900"]
 tags:
   - .NET
   - authentication

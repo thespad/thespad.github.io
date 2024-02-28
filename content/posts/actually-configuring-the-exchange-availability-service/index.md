@@ -2,7 +2,7 @@
 title: Actually Configuring The Exchange Availability Service In A Cross-Forest Environment
 author: Adam
 date: 2017-06-09T12:02:55+00:00
-aliases: ["/angry/930"]
+aliases: ["/wordpress/930"]
 tags:
   - autodiscover
   - availability service

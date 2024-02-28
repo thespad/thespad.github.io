@@ -2,7 +2,7 @@
 title: The 7 Stages of Windows Name Resolution
 author: Adam
 date: 2012-02-15T15:33:17+00:00
-aliases: ["/angry/365"]
+aliases: ["/wordpress/365"]
 tags:
   - DNS
   - name resolution

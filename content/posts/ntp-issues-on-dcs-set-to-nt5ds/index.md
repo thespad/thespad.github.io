@@ -2,7 +2,7 @@
 title: NTP issues on DCs set to NT5DS
 author: Adam
 date: 2012-01-24T15:41:05+00:00
-aliases: ["/angry/349"]
+aliases: ["/wordpress/349"]
 tags:
   - microsoft
   - NT5DS

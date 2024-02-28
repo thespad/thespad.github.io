@@ -2,7 +2,7 @@
 title: Use Eventlogs Properly!
 author: Adam
 date: 2010-11-08T10:02:24+00:00
-aliases: ["/angry/18"]
+aliases: ["/wordpress/18"]
 tags:
   - errors
   - logging

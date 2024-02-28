@@ -2,7 +2,7 @@
 title: A Failure of Comprehension
 author: Adam
 date: 2010-11-23T21:29:58+00:00
-aliases: ["/angry/27"]
+aliases: ["/wordpress/27"]
 tags:
   - group policy
   - helpdesk

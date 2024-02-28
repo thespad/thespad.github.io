@@ -2,7 +2,7 @@
 title: Update Window Settings After Scripted Changes
 author: Adam
 date: 2015-12-03T14:13:55+00:00
-aliases: ["/angry/855"]
+aliases: ["/wordpress/855"]
 tags:
   - explorer
   - microsoft

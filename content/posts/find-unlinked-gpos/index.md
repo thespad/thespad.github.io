@@ -2,7 +2,7 @@
 title: Find Unlinked GPOs
 author: Adam
 date: 2014-05-30T08:31:46+00:00
-aliases: ["/angry/676"]
+aliases: ["/wordpress/676"]
 tags:
   - active directory
   - GPO

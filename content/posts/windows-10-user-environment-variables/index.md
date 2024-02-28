@@ -2,7 +2,7 @@
 title: Windows 10 User Environment Variables
 author: Adam
 date: 2017-09-06T08:19:55+00:00
-aliases: ["/angry/936"]
+aliases: ["/wordpress/936"]
 tags:
   - environment variables
   - microsoft

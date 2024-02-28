@@ -2,7 +2,7 @@
 title: Send Skype For Business (Lync) IMs via Powershell
 author: Adam
 date: 2016-02-02T12:12:13+00:00
-aliases: ["/angry/865"]
+aliases: ["/wordpress/865"]
 tags:
   - IM
   - instant messaging

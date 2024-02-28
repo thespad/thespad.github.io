@@ -2,7 +2,7 @@
 title: Disconnect RDP Console Session Without Locking Server
 author: Adam
 date: 2013-07-03T10:51:58+00:00
-aliases: ["/angry/585"]
+aliases: ["/wordpress/585"]
 tags:
   - console
   - RDP

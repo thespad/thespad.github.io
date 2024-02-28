@@ -2,7 +2,7 @@
 title: Find Exchange Install Path
 author: Adam
 date: 2014-10-13T15:03:50+00:00
-aliases: ["/angry/772"]
+aliases: ["/wordpress/772"]
 tags:
   - exchange 2010
   - powershell

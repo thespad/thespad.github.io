@@ -2,7 +2,7 @@
 title: Decode UserAccountControl Values With Powershell
 author: Adam
 date: 2012-01-25T11:03:48+00:00
-aliases: ["/angry/358"]
+aliases: ["/wordpress/358"]
 tags:
   - active directory
   - microsoft
