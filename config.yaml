@@ -30,6 +30,7 @@ params:
   ShowCodeCopyButtons: true
   ShowWordCount: false
   ShowRssButtonInSectionTermList: true
+  ShowFullTextinRSS: true
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
@@ -56,6 +57,8 @@ params:
     url: "https://github.com/thespad"
   - name: discord
     url: "https://discord.gg/linuxserver"
+  - name: "rss"
+    url: "https://www.spad.uk/posts/index.xml"
 
   fuseOpts:
     isCaseSensitive: false
