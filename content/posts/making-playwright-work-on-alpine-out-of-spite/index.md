@@ -1,6 +1,7 @@
 ---
 title: "Making Playwright Work on Alpine Out of Spite"
 date: 2024-03-13T13:23:00.000Z
+lastmod: 2024-03-15T17:28:00.000Z
 tags: ["howto","docker","playwright","microsoft"]
 author: "Adam"
 ---
@@ -73,3 +74,7 @@ Now, there's still a problem, because it's expecting there to be a `node` binary
 Because I could, because I wasn't supposed to, and because I'm stubborn and wanted to see if I could make it work. The resulting image is about 25% smaller than a comparable Ubuntu-based one, which is ultimately only about 100Mb, so it's not a huge saving in most cases. There's no *real* reason Microsoft couldn't just support Alpine with Playwright, all they'd have to do is have the user install nodejs rather than downloading and bundling a static node executable. A muslc wheel would be nice, but not necessary if they published the source package to Pypi so people could build it themselves via `pip`. Then again, Microsoft don't seem to provide Alpine packages for any of their OSS projects, so this is hardly an outlier.
 
 Anyway, I don't really recommend anyone actually does this themselves, but it's not like I can stop you.
+
+### Addendum
+
+A few days after writing this I had a [fridge logic](https://tvtropes.org/pmwiki/pmwiki.php/Main/FridgeLogic) moment where I suddenly realised that actually there's probably no real reason to have to build the whole driver as part of the build because all that *really* needs replacing is the `node` binary. i.e. Drop steps three, four, fix, and six, and simply delete the `node` binary and symlink the OS package in there. And it does work. My only concern is that doing so risks breakage if at some point Playwright adds dependencies on native modules that are built against glibc.
