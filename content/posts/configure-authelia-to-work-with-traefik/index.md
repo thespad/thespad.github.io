@@ -10,7 +10,7 @@ author: Adam
 
 Authelia is an open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal. It's ideal if you want to make your self-hosted services accessible from the internet without letting every man and their dog nose through your stuff.
 
-If you haven't got Traefik up and running yet, my guide to [setting it up as a reverse proxy for Docker](https://wiki.spad.uk/books/public/page/practical-configuration-of-traefik-as-a-reverse-proxy-for-docker) will help you out. If you've already got a working Traefik setup you might want to just skim it anyway for some additional context.
+If you haven't got Traefik up and running yet, my guide to [setting it up as a reverse proxy for Docker](https://www.spad.uk/posts/practical-configuration-of-traefik-as-a-reverse-proxy-for-docker-updated-for-2023/) will help you out. If you've already got a working Traefik setup you might want to just skim it anyway for some additional context.
 
 Note: Authelia can only protect a single domain (with sub-domains) at a time. You can't protect both example.com and example.net without running a second instance.
 
