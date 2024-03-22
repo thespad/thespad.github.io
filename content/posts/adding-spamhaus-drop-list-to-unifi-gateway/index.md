@@ -44,7 +44,7 @@ Followed by a 24-character unique ID; this is what you need for modifying the gr
 }
 ```
 
-There's some additional information about the `config.gateway.json` on the [Unifi support site](https://help.ui.com/hc/en-us/articles/215458888-UniFi-USG-Advanced-Configuration-Using-config-gateway-json). If you *do* already have a custom `config.gateway.json` then just add the address group to it.
+There's some additional information about the `config.gateway.json` on the [Unifi support site](https://help.ui.com/hc/en-us/articles/215458888-UniFi-USG-Advanced-Configuration-Using-config-gateway-json). If you *do* already have a custom `config.gateway.json` then just add the address group to it. Note that changes made via this method *do not* show up in the UI and any changes you *do* make to those objects via the UI will just get overwritten by the settings in the `config.gateway.json`.
 
 Now that we have something in place to override the controller config, we can inject the DROP list IP ranges into it. Now, unfortunately the DROP list is published as a text file, with comments, and that makes things fiddly because we need clean JSON. There *is* a JSON file but it only lists ASNs and Unifi can't provision firewall rules based on ASN.
 
