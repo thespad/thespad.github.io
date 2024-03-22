@@ -79,7 +79,7 @@ There are two critical differences for the UDM's API:
 
 ### Testing Things
 
-This is all very well and good, but if you accidentally push broken config to your controller you could give yourself serious issues, so you probably want some safeguards in place. There are a few things we can check; for a start we can add a `set -e` to the script to terminate on a non-zero exit code from any of the commands. We can also sanity check the content of the DROP list with something like
+This is all very well and good, but if you accidentally push broken config to your controller you could give yourself serious issues, so you probably want some safeguards in place. There are a few things we can check; for a start we can add a `set -e` to the script to terminate on a non-zero exit code from any of the commands. We can also sanity check the content of the DROP list with something like:
 
 ```bash
 if ! grep -E -q "([0-9]{1,3}[\.]){3}[0-9]{1,3}\/[0-9]{1,2}" "${DROP_TEXT}"; then
@@ -87,7 +87,7 @@ if ! grep -E -q "([0-9]{1,3}[\.]){3}[0-9]{1,3}\/[0-9]{1,2}" "${DROP_TEXT}"; then
 fi
 ```
 
-i.e. does it contain at least on IP range in CIDR format? Yes, this is an overly simple regex and would match "invalid" IPs like `843.184.674.12/1`, but that's not something we're trying to validate in this case, we just want to know if there's something CIDR-like in the returned data. You can also use `jq` to confirm that the file is valid JSON before you overwrite the existing config file.
+i.e. does it contain at least on IP range in CIDR format? Yes, this is an overly simple regex and would match "invalid" IPs like `843.184.674.12/1`, but that's not something we're trying to validate in this case, we just want to know if there's something CIDR-like in the returned data. You can also use `jq` to confirm that the file is valid JSON before you overwrite the existing config file:
 
 ```bash
 if ! jq -e . >/dev/null 2>&1 <<<"${GATEWAY_CONFIG}"; then
@@ -148,3 +148,5 @@ rm \
 ```
 
 Now we can set up a cron job to run the script on whatever frequency we want. The DROP list changes quite slowly so there's no need to update more than once per hour, in fact once per day is more than enough in most cases. If you try and pull more often than once an hour you'll probably get blocked by Spamhaus, so don't do that.
+
+Make sure you run the script at least once by hand to make sure everything works as expected before you set it up to run automatically; you don't want your gateway going down in the middle of the night due to a typo.
