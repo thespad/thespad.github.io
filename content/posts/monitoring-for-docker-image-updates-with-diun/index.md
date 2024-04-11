@@ -43,7 +43,7 @@ services:
      - diun.enable=true
 ```
 
-There are a couple of things to note here, first of all Diun needs access to your Docker socket to be able to enumerate the other containers. As the container is not exposed externally this is a low risk, but if you're really concered take a look at a socket proxy [like this](https://hub.docker.com/r/tecnativa/docker-socket-proxy) and use the `DIUN_PROVIDERS_DOCKER_ENDPOINT` environment variable to set the endpoint location.
+There are a couple of things to note here, first of all Diun needs access to your Docker socket to be able to enumerate the other containers. As the container is not exposed externally this is a low risk, but if you're really concered take a look at a socket proxy [like this](https://github.com/linuxserver/docker-socket-proxy/) and use the `DIUN_PROVIDERS_DOCKER_ENDPOINT` environment variable to set the endpoint location.
 
 Secondly, you'll notice that I've set the container `hostname`. This isn't mandatory but if you've got more than one box with Diun on you'll probably struggle to work out which is sending you notifications if you're relying on randomly generated hostnames.
 
