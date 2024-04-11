@@ -743,21 +743,26 @@ As I mentioned at the top, if there's no need for the container to write to its 
 
 Traefik's Docker integration necessitates access to the Docker socket and this is a potential attack vector. Although we mount the socket as RO that doesn't actually mean that the container's access to the Docker API is read-only, it just stops it from modifying the socket itself. That means that in practice the Traefik container has full access to read and write to your Docker environment.
 
-One mitigation option is to use a Socket Proxy such as [this one](https://hub.docker.com/r/tecnativa/docker-socket-proxy) which lets you limit what Traefik can access. The only API component required for Traefik to operate is read-only access to `CONTAINERS` so you can otherwise lock things right down. Here's an example compose for the socket proxy.
+One mitigation option is to use a Socket Proxy such as [this one](https://github.com/linuxserver/docker-socket-proxy/) which lets you limit what Traefik can access. The only API component required for Traefik to operate is read-only access to `CONTAINERS` so you can otherwise lock things right down. Here's an example compose for the socket proxy.
 
 ```yaml
-version: "2.4"
 services:
-  dockerproxy-traefik:
-    image: tecnativa/docker-socket-proxy
-    container_name: dockerproxy-traefik
+  traefik-dockerproxy:
+    image: lscr.io/linuxserver/socket-proxy:latest
+    container_name: traefik-dockerproxy
+    environment:
+      - CONTAINERS=1
+      - POST=0
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    tmpfs:
+      - /run
     networks:
       - proxy
     restart: always
-    environment:
-     - CONTAINERS=1
+    security_opt:
+      - no-new-privileges=true
+    read_only: true
 
 networks:
     proxy:
