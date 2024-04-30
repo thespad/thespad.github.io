@@ -24,7 +24,7 @@
 
 .note {
   border-color: olive;
-  background-color: #333333;
+  background-color: var(--border);
 }
 
 .note .title {
@@ -34,7 +34,7 @@
 
 .tip {
   border-color: blue;
-  background-color: #333333;
+  background-color: var(--border);
 }
 
 .tip .title {
@@ -44,7 +44,7 @@
 
 .warning {
   border-color: orange;
-  background-color: #333333;
+  background-color: var(--border);
 }
 
 .warning .title {
@@ -54,7 +54,7 @@
 
 .important {
   border-color: red;
-  background-color: #333333;
+  background-color: var(--border);
 }
 
 .important .title {
