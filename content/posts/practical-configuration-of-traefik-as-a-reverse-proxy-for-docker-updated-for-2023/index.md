@@ -13,6 +13,10 @@ I originally wrote my [guide](https://www.spad.uk/practical-configuration-of-tra
 
 So with that in mind, consider this a straightforward replacement to the original post.
 
+{{< ad-warn >}}
+If you're following this guide against Traefik v3.0+ make sure you read their [migration guide](https://doc.traefik.io/traefik/v3.0/migration/v2-to-v3/) and make any necessary adjustments.
+{{< /ad-warn >}}
+
 ### Configuration
 
 We're going to be using [Docker Compose](https://docs.docker.com/compose/) to spin up our Traefik container and keep any sensitive values in an `.env` file. If you're not already using Compose to manage your containers, you're going to want to start.
