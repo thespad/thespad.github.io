@@ -1,6 +1,7 @@
 ---
-title: "Practical Configuration of Traefik as a Reverse Proxy For Docker - Updated for 2023"
+title: "Practical Configuration of Traefik as a Reverse Proxy For Docker - Updated for 2023 and Beyond"
 date: 2023-07-19T17:51:15.000Z
+lastmod: 2024-06-09T14:28:00.000Z
 tags: ["traefik","docker","containers","howto"]
 aliases: ["/practical-configuration-of-traefik-as-a-reverse-proxy-for-docker-updated-for-2023"]
 author: "Adam"
@@ -14,7 +15,7 @@ I originally wrote my [guide](https://www.spad.uk/practical-configuration-of-tra
 So with that in mind, consider this a straightforward replacement to the original post.
 
 {{< ad-warn >}}
-If you're following this guide against Traefik v3.0+ make sure you read their [migration guide](https://doc.traefik.io/traefik/v3.0/migration/v2-to-v3/) and make any necessary adjustments.
+This guide has now been updated for Traefik v3. If you've previously used v2 make sure you read their [migration guide](https://doc.traefik.io/traefik/v3.0/migration/v2-to-v3/) and make any necessary adjustments to your config.
 {{< /ad-warn >}}
 
 ### Configuration
@@ -37,7 +38,7 @@ With that out the way, here is our compose for Traefik.
 ```yaml
 services:
   traefik:
-    image: traefik:v2.10
+    image: traefik:v3.0
     container_name: traefik
     restart: always
     networks:
@@ -46,13 +47,13 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./data/traefik.yml:/traefik.yml:ro
       - ./data/configs:/configs:ro
       - ./data/acme.json:/acme.json:rw
       - ./data/logs:/logs:rw
     environment:
+      - TZ=Europe/London
       - CF_DNS_API_TOKEN=${CFAPI}
     read_only: true
     security_opt:
@@ -78,7 +79,7 @@ networks:
 ```yaml
 services:
   traefik:
-    image: traefik:v2.10
+    image: traefik:v3.0
     container_name: traefik
     restart: always
     networks:
@@ -90,11 +91,10 @@ services:
 
 First we create our container, give it a name, set it to always restart with the docker service, tell it to use the network called `proxy`, and to expose ports 80 and 443 for external connections.
 
-Note that I'm using the `v2.10` tag here. Traefik doesn't offer major version tags so you can't pin to `v2` and using `latest` can be risky and lead to broken services, especially with 3.0 just around the corner. If you choose to pin, just make sure you keep up with releases and update as required, and conversely if you're going with `latest` keep up with releases and don't update blindly.
+Note that I'm using the `v3.0` tag here. Traefik doesn't offer major version tags so you can't pin to `v3` and using `latest` can be risky and lead to broken services. If you choose to pin, just make sure you keep up with releases and update as required, and conversely if you're going with `latest` keep up with releases and don't update blindly.
 
 ```yaml
     volumes:
-      - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./data/traefik.yml:/traefik.yml:ro
       - ./data/configs:/configs:ro
@@ -102,7 +102,7 @@ Note that I'm using the `v2.10` tag here. Traefik doesn't offer major version ta
       - ./data/logs:/logs:rw
 ```
 
-Next, we configure the mapped volumes for the required files. Mapping `/etc/localtime` ensures that the container clock is in sync with the host. Now you could just map `./data:/` to keep things simple but I wanted to be able to specify Read-Only (RO) or Read-Write (RW) for each mount, hence the individual mappings. If you're doing it this way you'll need to pre-create the acme.json file and set its permissions correctly; something like:
+Next, we configure the mapped volumes for the required files. Now you could just map `./data:/` to keep things simple but I wanted to be able to specify Read-Only (RO) or Read-Write (RW) for each mount, hence the individual mappings. If you're doing it this way you'll need to pre-create the acme.json file and set its permissions correctly; something like:
 
 ```bash
 touch acme.json
@@ -117,10 +117,13 @@ Moving on.
 
 ```yaml
     environment:
+      - TZ=Europe/London
       - CF_DNS_API_TOKEN=${CFAPI}
 ```
 
 Here we use an environment variable to provide the container with our Cloudflare API key, as we're using a DNS challenge for our certificates. The list of supported providers and their corresponding environment variables is [here](https://doc.traefik.io/traefik/https/acme/#providers). If you're using an HTTP challenge then you can leave this bit out.
+
+We also set our time zone using the TZ variable; anything from [this list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) is considered valid.
 
 ```yaml
     read_only: true
@@ -147,7 +150,7 @@ We'll come back to the `labels` once we've finished setting everything up.
 
 #### Traefik Itself
 
-The Traefik application can be configured using one of several different config options but as we're working with v2 we're going to use YAML over the legacy TOML format. Almost everything we're about to configure *could* be done purely using Docker container labels and environment variables, but that's going to start getting messy and hard to keep track of very quickly so we'll keep the static stuff away from the containers. Let's build ourselves a Traefik config file.
+The Traefik application can be configured using one of several different config options but as we're working with v3 we're going to use YAML over the legacy TOML format. Almost everything we're about to configure *could* be done purely using Docker container labels and environment variables, but that's going to start getting messy and hard to keep track of very quickly so we'll keep the static stuff away from the containers. Let's build ourselves a Traefik config file.
 
 Create your traefik.yml with the rest of the files in the data directory. This file can be owned by anyone as long as root has at least Read permissions on it.
 
@@ -577,11 +580,11 @@ In the Traefik Compose file we requested a wildcard certificate for `*.example.c
      - traefik.http.routers.bookstack-org-https.tls.certresolver=letsencrypt
      - traefik.http.routers.bookstack-org-https.service=bookstack-org
      - traefik.http.services.bookstack-org.loadbalancer.server.port=80
-````
+```
 
 ##### HTTP->HTTPS Redirect
 
-If you want to be able to hit the HTTP address for your service and get automatically redirected to HTTPS then you need the help of some middlware. Let's look at our Bookstack container again.
+If you want to be able to hit the HTTP address for your service and get automatically redirected to HTTPS then you need the help of some middleware. Let's look at our Bookstack container again.
 
 ```yaml
     labels:
@@ -628,15 +631,15 @@ Because the certresolver label will force TLS on the whole router, which will br
 
 You can then point both routers at the same service. If you're not setting a `certresolver` label because you're using wildcard certs or using a default certresolver from your static config then you won't run into this issue.
 
-##### IP-Based Whitelisting
+##### IP-Based Allowlisting
 
-Now, what if we want to limit access to some services to internal users, but allow external connections to others? For that we need an ipwhitelist middleware. This can be done via a label or a file, but I find a file easier to manage if you have lots of IP ranges you want to whitelist, and it also means you don't have to recreate the Traefik container to update the subnets. Again we create a .yml file in the `/configs` directory and put our middleware settings into it.
+Now, what if we want to limit access to some services to internal users, but allow external connections to others? For that we need an ipAllowList middleware. This can be done via a label or a file, but I find a file easier to manage if you have lots of IP ranges you want to allowlist, and it also means you don't have to recreate the Traefik container to update the subnets. Again we create a .yml file in the `/configs` directory and put our middleware settings into it.
 
 ```yaml
 http:
   middlewares:
-    internal-ipwhitelist:
-      ipWhiteList:
+    internal-ipallowlist:
+      ipAllowList:
         sourceRange:
           - "127.0.0.1/32"
           - "192.168.0.0/24"
@@ -644,13 +647,13 @@ http:
           - "10.0.0.0/8"
 ```
 
-`internal-ipwhitelist` is the name you want to give to the middleware and then `sourceRange` is your list of subnets. We could now apply this list to our Traefik container with a label.
+`internal-ipallowlist` is the name you want to give to the middleware and then `sourceRange` is your list of subnets. We could now apply this list to our Traefik container with a label.
 
 ```yaml
-      - traefik.http.routers.traefik-https.middlewares=traefik-auth,internal-ipwhitelist@file
+      - traefik.http.routers.traefik-https.middlewares=traefik-auth,internal-ipallowlist@file
 ```
 
-Now any connection to `myproxy.example.com` from outside of the allowed ranges will be met with a 403 forbidden error. You can have multiple different whitelists if you need to, just give them different names.
+Now any connection to `myproxy.example.com` from outside of the allowed ranges will be met with a 403 forbidden error. You can have multiple different allowlists if you need to, just give them different names.
 
 ### Shortcuts
 
@@ -729,9 +732,9 @@ Note that because middlewares are additive, it's non-trivial to remove a default
 
 ### A Quick Note On Namespaces
 
-Traefik has multiple different namespaces for configuration objects which you may have picked up on looking through this piece. The ones we care about for our purposes are `@internal`, `@docker`, and `@file`. If you're referencing something within the same namespace, say a Docker label-defined middleware from a Docker label-defined router, you don't need to specify the namespace. If, however, you're using things cross-namespace, such as with the IP Whitelist example above, you need to specify where you're getting it from.
+Traefik has multiple different namespaces for configuration objects which you may have picked up on looking through this piece. The ones we care about for our purposes are `@internal`, `@docker`, and `@file`. If you're referencing something within the same namespace, say a Docker label-defined middleware from a Docker label-defined router, you don't need to specify the namespace. If, however, you're using things cross-namespace, such as with the IP Allowlist example above, you need to specify where you're getting it from.
 
-This is why we use `traefik-auth` to refer to the basicauth middleware, because it's defined in a Docker label and called from a Docker label, but `internal-ipwhitelist@file` because it's defined in a file and called from a Docker label. Equally if you were doing things the other way around, you'd reference `internal-ipwhitelist@docker` in your .yml file. You can of course *always* specify the namespace, even when it's not technically necessary, if it makes it easier for you to keep track.
+This is why we use `traefik-auth` to refer to the basicauth middleware, because it's defined in a Docker label and called from a Docker label, but `internal-ipallowlist@file` because it's defined in a file and called from a Docker label. Equally if you were doing things the other way around, you'd reference `internal-ipallowlist@docker` in your .yml file. You can of course *always* specify the namespace, even when it's not technically necessary, if it makes it easier for you to keep track.
 
 ### Security Considerations
 
@@ -783,14 +786,7 @@ providers:
 
 ### HTTP/3
 
-Traefik v2 has experimental support for HTTP/3. If you want to make use of it, you can enable it in your traefik.yml by adding the top level setting
-
-```yaml
-experimental:
-  http3: true
-```
-
-And then under your https entrypoint
+Traefik v3 has support for HTTP/3. If you want to make use of it, you can enable it in your traefik.yml by adding this config under your https entrypoint:
 
 ```yaml
 entryPoints:
