@@ -21,10 +21,11 @@ jobs:
         run: |
           ROBOTS_VERSION=$(curl -sL https://api.github.com/repos/ai-robots-txt/ai.robots.txt/releases/latest | jq -r .tag_name)
           FILE_VERSION=$(grep -Poe '# Version: \K(v\d+.\d+)' ./layouts/robots.txt)
-          if [[ ROBOTS_VERSION == FILE_VERSION ]]; then
+          echo "**** Current version on disk is ${FILE_VERSION}"
+          echo "**** Remote AI robots.txt version is ${ROBOTS_VERSION}"
+          if [[ ${ROBOTS_VERSION} == ${FILE_VERSION} ]]; then
               echo "modified=false" >> $GITHUB_OUTPUT
           else
-              echo "**** New AI robots.txt version ${ROBOTS_VERSION} available"
               echo "modified=true" >> $GITHUB_OUTPUT
               echo "version=${ROBOTS_VERSION}" >> $GITHUB_OUTPUT
           fi
