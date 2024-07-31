@@ -61,12 +61,22 @@ jobs:
           Sitemap: {{ "sitemap.xml" | absURL }}
           EOF
       -
+        name: Import GPG Key
+        id: import-gpg
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+      -
         name: Create Pull Request
         id: create-pr
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update robots to ${{ needs.get-robots-version.outputs.version }}
+          committer: thespad <git@spad.co.uk>
           branch: ai-robots
           delete-branch: true
           title: "[ai-robots] Update to ${{ needs.get-robots-version.outputs.version }}"
