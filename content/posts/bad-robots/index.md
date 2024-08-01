@@ -5,13 +5,13 @@ tags: ["howto","robots.txt","AI","openai","github","github actions","hugo","auto
 author: Adam
 ---
 
-{{< ad-note >}}
+{{< ad-info title=" " >}}
 "The whole internet loves ChatGPT, a lovely chatbot that gives plausible-sounding answers to your questions"
 
 *5 seconds later*
 
 "We regret to inform you that ChatGPT is stealing all your content"
-{{< /ad-note >}}
+{{< /ad-info >}}
 
 ### AI Scraper Bots
 
