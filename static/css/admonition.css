@@ -61,3 +61,13 @@
   color: red;
   border-color: red;
 }
+
+.info {
+  border-color: grey;
+  background-color: var(--border);
+}
+
+.info .title {
+  color: grey;
+  border-color: grey;
+}
