@@ -1,7 +1,7 @@
 ---
 title: "Practical Configuration of Traefik as a Reverse Proxy For Docker - Updated for 2023 and Beyond"
 date: 2023-07-19T17:51:15.000Z
-lastmod: 2024-06-09T14:28:00.000Z
+lastmod: 2024-09-12T10:48:00.000Z
 tags: ["traefik","docker","containers","howto"]
 aliases: ["/practical-configuration-of-traefik-as-a-reverse-proxy-for-docker-updated-for-2023"]
 author: "Adam"
@@ -431,10 +431,10 @@ $ htpasswd -nbB user password
 user:$2y$05$gQIjpyN8.FEvBdHCxxQ6.e3K5zlLOhGGSnOfqMm9MpMKEal96niQu
 ```
 
-You can then add this string to your `.env`
+You can then add this string to your `.env` (note the single quotes to stop it trying to interpret the `$`)
 
 ```bash
-TRAEFIKADMIN=user:$2y$05$gQIjpyN8.FEvBdHCxxQ6.e3K5zlLOhGGSnOfqMm9MpMKEal96niQu
+TRAEFIKADMIN='user:$2y$05$gQIjpyN8.FEvBdHCxxQ6.e3K5zlLOhGGSnOfqMm9MpMKEal96niQu'
 ```
 
 You can also use a file if you have lots of users to add by instead using the `usersfile` label (and obviously mapping the file into your Traefik container).
@@ -675,7 +675,7 @@ Similarly if instead of
      - traefik.http.services.bookstack.loadbalancer.server.port=80
 ```
 
-You omit the entire port label, Traefik will use the first port listed in the EXPOSE statement of the image. This can be tricky for obvious reasons as you reliant on the image provider setting it correctly at build time.
+You omit the entire port label, Traefik will use the first port listed in the EXPOSE statement of the image. This can be tricky for obvious reasons as you are reliant on the image provider setting it correctly at build time.
 
 And finally, if instead of
 
@@ -781,7 +781,7 @@ You can then set the Docker endpoint in your traefik.yml to use the socket proxy
 ```yaml
 providers:
   docker:
-    endpoint: "tcp://dockerproxy-traefik:2375"
+    endpoint: "tcp://traefik-dockerproxy:2375"
 ```
 
 ### HTTP/3
