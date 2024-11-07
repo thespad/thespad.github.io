@@ -53,6 +53,8 @@ params:
   socialIcons:
   - name: mastodon
     url: "https://mastodon.linuxserver.io/@spad"
+  - name: bluesky
+    url: "https://bsky.app/profile/spad.uk"
   - name: github
     url: "https://github.com/thespad"
   - name: discord
