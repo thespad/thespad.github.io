@@ -2,7 +2,9 @@ languageCode: en-gb
 baseUrl: "https://www.spad.uk/"
 title: spad.uk
 theme: PaperMod
-paginate: 10
+
+pagination:
+  pagerSize: 10
 
 enableRobotsTXT: true
 buildDrafts: false
