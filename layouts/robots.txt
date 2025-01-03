@@ -1,4 +1,4 @@
-# Version: v1.20
+# Version: v1.21
 User-agent: AI2Bot
 User-agent: Ai2Bot-Dolma
 User-agent: Amazonbot
