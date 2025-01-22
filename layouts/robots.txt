@@ -1,4 +1,4 @@
-# Version: v1.23
+# Version: v1.24
 User-agent: AI2Bot
 User-agent: Ai2Bot-Dolma
 User-agent: Amazonbot
@@ -12,6 +12,7 @@ User-agent: Claude-Web
 User-agent: ClaudeBot
 User-agent: cohere-ai
 User-agent: cohere-training-data-crawler
+User-agent: Crawlspace
 User-agent: Diffbot
 User-agent: DuckAssistBot
 User-agent: FacebookBot
