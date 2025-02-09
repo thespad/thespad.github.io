@@ -1,4 +1,4 @@
-# Version: v1.24
+# Version: v1.25
 User-agent: AI2Bot
 User-agent: Ai2Bot-Dolma
 User-agent: Amazonbot
@@ -37,7 +37,8 @@ User-agent: PanguBot
 User-agent: PerplexityBot
 User-agent: PetalBot
 User-agent: Scrapy
-User-agent: SemrushBot
+User-agent: SemrushBot-OCOB
+User-agent: SemrushBot-SWA
 User-agent: Sidetrade indexer bot
 User-agent: Timpibot
 User-agent: VelenPublicWebCrawler
