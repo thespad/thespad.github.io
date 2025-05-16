@@ -1,4 +1,4 @@
-# Version: v1.29
+# Version: v1.30
 User-agent: AI2Bot
 User-agent: Ai2Bot-Dolma
 User-agent: aiHitBot
@@ -34,7 +34,9 @@ User-agent: img2dataset
 User-agent: imgproxy
 User-agent: ISSCyberRiskCrawler
 User-agent: Kangaroo Bot
+User-agent: meta-externalagent
 User-agent: Meta-ExternalAgent
+User-agent: meta-externalfetcher
 User-agent: Meta-ExternalFetcher
 User-agent: NovaAct
 User-agent: OAI-SearchBot
@@ -45,6 +47,7 @@ User-agent: PanguBot
 User-agent: Perplexity-User
 User-agent: PerplexityBot
 User-agent: PetalBot
+User-agent: QualifiedBot
 User-agent: Scrapy
 User-agent: SemrushBot-OCOB
 User-agent: SemrushBot-SWA
