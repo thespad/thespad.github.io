@@ -1,4 +1,4 @@
-# Version: v1.34
+# Version: v1.35
 User-agent: AI2Bot
 User-agent: Ai2Bot-Dolma
 User-agent: aiHitBot
@@ -7,6 +7,7 @@ User-agent: Andibot
 User-agent: anthropic-ai
 User-agent: Applebot
 User-agent: Applebot-Extended
+User-agent: bedrockbot
 User-agent: Brightbot 1.0
 User-agent: Bytespider
 User-agent: CCBot
