@@ -1,4 +1,4 @@
-# Version: v1.35
+# Version: v1.36
 User-agent: AI2Bot
 User-agent: Ai2Bot-Dolma
 User-agent: aiHitBot
@@ -22,6 +22,7 @@ User-agent: Cotoyogi
 User-agent: Crawlspace
 User-agent: Diffbot
 User-agent: DuckAssistBot
+User-agent: EchoboxBot
 User-agent: FacebookBot
 User-agent: Factset_spyderbot
 User-agent: FirecrawlAgent
