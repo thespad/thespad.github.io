@@ -20,7 +20,7 @@ jobs:
         id: robots-check
         run: |
           ROBOTS_VERSION=$(curl -sL https://api.github.com/repos/ai-robots-txt/ai.robots.txt/releases/latest | jq -r .tag_name)
-          FILE_VERSION=$(grep -Poe '# Version: \K(v\d+.\d+)' ./layouts/robots.txt)
+          FILE_VERSION=$(grep -Poe '# Version: \K(v?\d+.\d+)' ./layouts/robots.txt)
           echo "**** Current version on disk is ${FILE_VERSION}"
           echo "**** Remote AI robots.txt version is ${ROBOTS_VERSION}"
           if [[ ${ROBOTS_VERSION} == ${FILE_VERSION} ]]; then
