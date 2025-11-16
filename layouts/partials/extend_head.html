@@ -1,5 +1,10 @@
 {{ if not hugo.IsServer }}
-<script defer data-domain="spad.uk" src="https://stats.spad.uk/js/script.js"></script>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://stats.spad.uk/js/pa-DGiQK32ZpFKWnlmqH796P.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 {{ end }}
 <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/admonition.css">
 <meta name="fediverse:creator" content="@spad@linuxserver.io" />
