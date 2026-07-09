@@ -1,5 +1,6 @@
-# Version: v1.46
+# Version: v1.47
 User-agent: AddSearchBot
+User-agent: AgentTimes
 User-agent: AI2Bot
 User-agent: AI2Bot-DeepResearchEval
 User-agent: Ai2Bot-Dolma
@@ -43,8 +44,10 @@ User-agent: Code
 User-agent: cohere-ai
 User-agent: cohere-training-data-crawler
 User-agent: Cotoyogi
+User-agent: CragCrawler
 User-agent: Crawl4AI
 User-agent: Crawlspace
+User-agent: Cursor
 User-agent: Datenbank Crawler
 User-agent: DeepSeekBot
 User-agent: Devin
@@ -58,6 +61,7 @@ User-agent: facebookexternalhit
 User-agent: Factset_spyderbot
 User-agent: FirecrawlAgent
 User-agent: FriendlyCrawler
+User-agent: GeistHaus-PageFetcher
 User-agent: Gemini-Deep-Research
 User-agent: Google-Agent
 User-agent: Google-CloudVertexBot
@@ -66,6 +70,7 @@ User-agent: Google-Firebase
 User-agent: Google-Gemini-CLI
 User-agent: Google-NotebookLM
 User-agent: GoogleAgent-Mariner
+User-agent: GoogleAgent-URLContext
 User-agent: GoogleOther
 User-agent: GoogleOther-Image
 User-agent: GoogleOther-Video
@@ -82,6 +87,7 @@ User-agent: img2dataset
 User-agent: ISSCyberRiskCrawler
 User-agent: kagi-fetcher
 User-agent: Kangaroo Bot
+User-agent: Kimi-User
 User-agent: KlaviyoAIBot
 User-agent: KunatoCrawler
 User-agent: laion-huggingface-processor
@@ -120,12 +126,15 @@ User-agent: PhindBot
 User-agent: Poggio-Citations
 User-agent: Poseidon Research Crawler
 User-agent: QualifiedBot
+User-agent: Querit-SearchBot
+User-agent: QueritBot
 User-agent: QuillBot
 User-agent: quillbot.com
 User-agent: SBIntuitionsBot
 User-agent: Scrapy
 User-agent: SemrushBot-OCOB
 User-agent: SemrushBot-SWA
+User-agent: Shap-User
 User-agent: ShapBot
 User-agent: Sidetrade indexer bot
 User-agent: Spider
@@ -137,6 +146,7 @@ User-agent: TikTokSpider
 User-agent: Timpibot
 User-agent: Trae
 User-agent: TwinAgent
+User-agent: UseAI
 User-agent: VelenPublicWebCrawler
 User-agent: WARDBot
 User-agent: Webzio-Extended
