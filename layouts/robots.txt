@@ -1,4 +1,4 @@
-# Version: v1.48
+# Version: v1.49
 User-agent: AddSearchBot
 User-agent: AgentTimes
 User-agent: AI2Bot
@@ -81,7 +81,6 @@ User-agent: HenkBot
 User-agent: iAskBot
 User-agent: iaskspider
 User-agent: iaskspider/2.0
-User-agent: IbouBot
 User-agent: ICC-Crawler
 User-agent: ImagesiftBot
 User-agent: imageSpider
